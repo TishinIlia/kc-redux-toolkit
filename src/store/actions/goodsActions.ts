@@ -1,18 +1,11 @@
 import { getGoods } from '../../api'
-
-import SET_GOODS from '../types/goods'
-
 import { AppAction } from '../index'
+import { setGoods } from '../slices/goodsSlice'
 
-import GoodsItem from '../../types/GoodsItem'
-
-export const setGoodsState = (goods: GoodsItem[]) => ({
-  type: SET_GOODS,
-  payload: goods,
-})
-
-export const fetchGoods = (): AppAction<Promise<void>> => (dispatch) => {
+const fetchGoods = (): AppAction<Promise<void>> => (dispatch) => {
   return getGoods().then((goods) => {
-    dispatch(setGoodsState(goods))
+    dispatch(setGoods(goods))
   })
 }
+
+export default fetchGoods

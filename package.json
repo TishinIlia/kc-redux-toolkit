@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
+		"@reduxjs/toolkit": "^1.9.5",
     "@ant-design/icons": "4.7.0",
     "antd": "4.17.4",
     "firebase": "9.6.1",

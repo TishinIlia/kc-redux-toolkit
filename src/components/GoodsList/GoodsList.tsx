@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import GoodsItem from '../GoodsItem/GoodsItem'
 import { Dispatch } from '../../store'
 import { getGoods, getSelectedGoods } from '../../store/selectors/selectors'
-import { fetchGoods } from '../../store/actions/goodsActions'
+import fetchGoods from '../../store/actions/goodsActions'
 import GoodsItemType from '../../types/GoodsItem'
 
-import { addSelectedGoodsItem, removeSelectedGoodsItem } from '../../store/actions/selectedGoodsActions'
+import { addSelectedGoods, deleteSelectedGoods } from '../../store/slices/selectedGoodsSlice'
 
 const GoodsList = () => {
   const dispatch = useDispatch<Dispatch>()
@@ -26,11 +26,11 @@ const GoodsList = () => {
   }
 
   const onAdd = (id: GoodsItemType['id']) => {
-    dispatch(addSelectedGoodsItem(id))
+    dispatch(addSelectedGoods(id))
   }
 
   const onDelete = (id: GoodsItemType['id']) => {
-    dispatch(removeSelectedGoodsItem(id))
+    dispatch(deleteSelectedGoods(id))
   }
 
   return (

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import CartItem from '../CartItem/CartItem'
 import GoodsItemType from '../../types/GoodsItem'
 import { getGoods, getSelectedGoods } from '../../store/selectors/selectors'
-import { removeSelectedGoodsItem, setSelectedGoods } from '../../store/actions/selectedGoodsActions'
+import { setSelectedGoods, deleteSelectedGoods } from '../../store/slices/selectedGoodsSlice'
 import { Dispatch } from '../../store'
 
 interface Props {
@@ -27,7 +27,7 @@ const CartModal: FC<Props> = ({ isOpen, onClose }) => {
   }, [])
 
   const onDelete = (id: GoodsItemType['id']) => {
-    dispatch(removeSelectedGoodsItem(id))
+    dispatch(deleteSelectedGoods(id))
   }
 
   return (

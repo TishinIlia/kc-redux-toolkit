@@ -1,10 +1,15 @@
-import { createStore, applyMiddleware, AnyAction } from 'redux'
-import thunk, { ThunkDispatch, ThunkAction } from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import reducer from './reducers/index'
+import { configureStore, ThunkAction, ThunkDispatch, Action } from '@reduxjs/toolkit'
 
-export const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
+import goodsSlice from './slices/goodsSlice'
+import selectedGoodsSlice from './slices/selectedGoodsSlice'
+
+export const store = configureStore({
+  reducer: {
+    goods: goodsSlice,
+    selectedGoods: selectedGoodsSlice,
+  },
+})
 
 export type RootState = ReturnType<typeof store.getState>
-export type Dispatch = ThunkDispatch<RootState, unknown, AnyAction>
-export type AppAction<R> = ThunkAction<R, RootState, unknown, AnyAction>
+export type Dispatch = ThunkDispatch<RootState, unknown, Action<string>>
+export type AppAction<R> = ThunkAction<R, RootState, unknown, Action<string>>

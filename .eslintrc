@@ -32,6 +32,7 @@
     ],
     // Note: you must disable the base rule as it can report incorrect errors
     "no-shadow": 0,
+    "no-param-reassign": [2, { "props": false }],
     "@typescript-eslint/no-shadow": 2,
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", "ts", "tsx"] }],
     "import/extensions": [
