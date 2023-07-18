@@ -1,2 +1,2 @@
-# kc-redux-toolkit
+# kc-redux
 Created with CodeSandbox
